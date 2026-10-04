@@ -1,11 +1,650 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bulma CSS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+        :root {
+            --custom-h: 73deg;
+            --custom-s: 99%;
+            --custom-l: 50%;
+            --custom-b-h: 220deg;
+            --custom-b-s: 13%;
+            --custom-b-l: 9%;
+
+        }
+
+        :root,
+        [data-theme="light"],
+        [data-theme="dark"] {
+            --bulma-primary-h: var(--custom-h);
+            --bulma-primary-s: var(--custom-s);
+            --bulma-primary-l: var(--custom-l);
+            --bulma-info-h: var(--custom-b-h);
+            --bulma-info-s: var(--custom-b-s);
+            --bulma-info-l: var(--custom-b-l);
+        }
+
+        .navbar {
+            --bulma-navbar-dropdown-arrow: var(--bulma-primary);
+            --bulma-navbar-burger-color: var(--bulma-primary);
+        }
+
+
+        .navbar .navbar-dropdown a.navbar-item:hover {
+            background-color: var(--bulma-primary);
+            color: var(--bulma-primary-invert);
+        }
+
+        .hero-bg {
+            background-image:
+                linear-gradient(to right, rgba(0, 0, 0, 1.5), rgba(0, 0, 0, 0.5)),
+                url("hero.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .tipografia {
+            --bulma-title-family: 'Anton', Impact, sans-serif;
+            font-size: 4.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .tipografia2 {
+            --bulma-title-family: 'Anton', Impact, sans-serif;
+            font-size: 2rem;
+            letter-spacing: 0.02em;
+        }
+
+        .subtitulo {
+            font-family: 'Barlow', system-ui, sans-serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+            color: var(--bulma-primary);
+        }
+
+        .subtitulo2 {
+            font-family: 'Barlow', system-ui, sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            color: var(--bulma-primary);
+        }
+
+        .card-ojba {
+            max-width: 300px !important;
+            display: flex;
+            flex-direction: column;
+            --brillo: var(--custom-h) var(--custom-s) var(--custom-l);
+            border: 1px solid hsl(var(--brillo) / 0.35);
+            box-shadow: 0 0 12px hsl(var(--brillo) / 0.25), 0 0 30px hsl(var(--brillo) / 0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card-ojba .card-content {
+            flex-grow: 1;
+        }
+
+        .card.card-ojba:hover {
+            transform: translateY(-6px);
+            border-color: var(--bulma-primary);
+            box-shadow:
+                0 0 18px hsl(var(--brillo) / 0.6),
+                0 0 45px hsl(var(--brillo) / 0.35);
+        }
+
+        .gap {
+            gap: 1rem;
+        }
+
+        .separador-neon {
+            border-top: 3px solid var(--bulma-primary);
+        }
+    </style>
 </head>
-<body>
-    
+
+<body data-theme="dark">
+    <header>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand is-full">
+                <a class="navbar-item" href="#inicio">
+                    <img src="logo.jpg" alt="Logo" style="max-height: 100px">
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="#inicio">
+                        Inicio
+                    </a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link" href="#siluetas">
+                            Siluetas
+                        </a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="#low">
+                                Low
+                            </a>
+                            <a class="navbar-item" href="#mid">
+                                Mid
+                            </a>
+                            <a class="navbar-item" href="#high">
+                                High
+                            </a>
+                        </div>
+                    </div>
+                    <a class="navbar-item" href="#nuestro-drop">
+                        Nuestro Drop
+                    </a>
+                </div>
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-primary">
+                                <strong>Sign up</strong>
+                            </a>
+                            <a class="button is-light">
+                                Log in
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero is-large hero-bg">
+            <div class="hero-body" id="inicio">
+                <p class="title has-text-white tipografia">CAMINA CON CONFIANZA</p>
+                <p class="subtitle subtitulo">Las zapatillas que todos quieren, en un solo lugar.</p>
+                <button class="button is-medium has-text-weight-bold is-radiusless">SILUETAS ➔ </button>
+                <button class="button is-medium is-primary has-text-weight-bold is-radiusless">NUESTRO DROP</button>
+            </div>
+        </section>
+        <section class="hero is-info separador-neon fondo-alterno" id="siluetas">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <p class="title tipografia2 has-text-white has-text-weight-bold">SILUETAS EN EL MERCADO</p>
+                    <p class="subtitle subtitulo is-primary has-text-weight-bold mt-2">Low. Mid. High. Las siluetas que
+                        marcan el ritmo de la cultura urbana.</p>
+                </div>
+
+                <section class="container is-max-desktop mt-6">
+                    <div class="columns is-centered is-multiline">
+                        <div class="column is-4 is-flex is-justify-content-center">
+                            <div class="card card-ojba" id="low">
+                                <div class="card-image">
+                                    <figure class="image is-4by3">
+                                        <img src="low.jpg" alt="Silueta Low" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <figure class="image is-48x48">
+                                                <img src="low.jpg" alt="Silueta Low" />
+                                            </figure>
+                                        </div>
+                                        <div class="media-content">
+                                            <p class="title is-4">Silueta Low</p>
+                                            <p class="subtitle is-6">@calzado_low</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        Corte bajo clásico diseñado para brindar máxima libertad de movimiento y
+                                        comodidad diaria. El complemento versátil e imprescindible para tu estilo
+                                        urbano.
+                                        <a href="#">#SiluetaLow</a>
+                                        <a href="#">#CalzadoUrbano</a>
+                                        <a href="#">#Streetwear</a>
+                                        <br />
+                                        <time datetime="2016-10-4">04 Octubre 2026</time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-4 is-flex is-justify-content-center">
+                            <div class="card card-ojba" id="mid">
+                                <div class="card-image">
+                                    <figure class="image is-4by3">
+                                        <img src="mid.jpg" alt="Silueta Mid" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <figure class="image is-48x48">
+                                                <img src="mid.jpg" alt="Silueta Mid" />
+                                            </figure>
+                                        </div>
+                                        <div class="media-content">
+                                            <p class="title is-4">Silueta Mid</p>
+                                            <p class="subtitle is-6">@calzado_mid</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        El equilibrio perfecto entre soporte y libertad. Nuestra silueta Mid ofrece
+                                        protección adicional al tobillo sin sacrificar agilidad, ideal para transiciones
+                                        fluidas en cualquier terreno.
+                                        <a href="#">#SiluetaMid</a>
+                                        <a href="#">#SoporteHibrido</a>
+                                        <a href="#">#VersatilidadUrbana</a>
+                                        <br />
+                                        <time datetime="2026-10-04">4 Oct 2026</time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-4 is-flex is-justify-content-center">
+                            <div class="card card-ojba" id="high">
+                                <div class="card-image">
+                                    <figure class="image is-4by3">
+                                        <img src="hight.jpg" alt="Silueta High" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <figure class="image is-48x48">
+                                                <img src="hight.jpg" alt="Silueta High" />
+                                            </figure>
+                                        </div>
+                                        <div class="media-content">
+                                            <p class="title is-4">Silueta High</p>
+                                            <p class="subtitle is-6">@calzado_high</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        Máxima cobertura y protección en un diseño de caña alta imponente. La silueta
+                                        High combina soporte superior con el impacto visual clásico de la cultura
+                                        sneaker.
+                                        <a href="#">#SiluetaHigh</a>
+                                        <a href="#">#CanaAlta</a>
+                                        <a href="#">#IconoUrbano</a>
+                                        <br />
+                                        <time datetime="2026-10-04">4 Oct 2026</time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <section class="hero is-info separador-neon fondo-alterno">
+            <div class="hero-body">
+                <div class="container has-text-centered" id="nuestro-drop">
+                    <p class="title tipografia2 has-text-white has-text-weight-bold">NUESTRO DROP</p>
+                    <p class="subtitle subtitulo is-primary has-text-weight-bold mt-2">Edición limitada. Cuando se
+                        acaban,
+                        se acaban.</p>
+                </div>
+
+                <section class="container is-max-desktop mt-6">
+                    <div class="columns is-centered is-multiline">
+                        <div class="column is-4 is-flex is-justify-content-center">
+                            <div class="card card-ojba">
+                                <div class="card-image">
+                                    <figure class="image is-4by3">
+                                        <img src="nike cortez.jpg" alt="Nike Cortez" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <figure class="image is-48x48">
+                                                <img src="nike cortez.jpg" alt="Nike Cortez" />
+                                            </figure>
+                                        </div>
+                                        <div class="media-content">
+                                            <p class="title is-4">Nike Cortez</p>
+                                            <p class="subtitle is-6">@nike_cortez</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        Un clásico de corte bajo y suela ligera, ideal para el uso diario.
+                                        Pocas unidades disponibles en este drop.
+                                        <br />
+                                        <a href="#">#NikeCortez</a>
+                                        <a href="#">#DropLimitado</a>
+                                        <a href="#">#Streetwear</a>
+                                        <br />
+                                        <time datetime="2026-10-04">Disponible: 4 Oct 2026</time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-4 is-flex is-justify-content-center">
+                            <div class="card card-ojba">
+                                <div class="card-image">
+                                    <figure class="image is-4by3">
+                                        <img src="airforce low.jpg" alt="Air Force Low" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <figure class="image is-48x48">
+                                                <img src="airforce low.jpg" alt="Air Force 1 Low" />
+                                            </figure>
+                                        </div>
+                                        <div class="media-content">
+                                            <p class="title is-4">Air Force 1 Low</p>
+                                            <p class="subtitle is-6">@airforce1_low</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        El ícono de la cultura sneaker en su versión low. Suela con cámara de aire,
+                                        cuero resistente y un diseño que combina con todo.
+                                        <br />
+                                        <a href="#">#AirForce1</a>
+                                        <a href="#">#DropLimitado</a>
+                                        <a href="#">#Streetwear</a>
+                                        <br />
+                                        <time datetime="2026-10-04">Disponible: 4 Oct 2026</time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-4 is-flex is-justify-content-center">
+                            <div class="card card-ojba">
+                                <div class="card-image">
+                                    <figure class="image is-4by3">
+                                        <img src="nike dunk low.jpg" alt="Nike Dunk Low" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <figure class="image is-48x48">
+                                                <img src="nike dunk low.jpg" alt="Nike Dunk Low" />
+                                            </figure>
+                                        </div>
+                                        <div class="media-content">
+                                            <p class="title is-4">Nike Dunk Low</p>
+                                            <p class="subtitle is-6">@nike_dunk_low</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        Nacida en las canchas y adoptada por el skate y la calle. Colores
+                                        audaces, perfil bajo y comodidad para todo el día.
+                                        <br />
+                                        <a href="#">#NikeDunk</a>
+                                        <a href="#">#DropLimitado</a>
+                                        <a href="#">#Streetwear</a>
+                                        <br />
+                                        <time datetime="2026-10-04">Disponible: 4 Oct 2026</time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <section class="container is-max-desktop mt-6">
+                            <div class="columns is-centered is-multiline">
+                                <div class="column is-4 is-flex is-justify-content-center">
+                                    <div class="card card-ojba">
+                                        <div class="card-image">
+                                            <figure class="image is-4by3">
+                                                <img src="Jordan mid.jpg" alt=" Air 1 Jordan Mid" />
+                                            </figure>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    <figure class="image is-48x48">
+                                                        <img src="Jordan mid.jpg" alt=" Air 1 Jordan Mid" />
+                                                    </figure>
+                                                </div>
+                                                <div class="media-content">
+                                                    <p class="title is-4">Air Jordan 1 Mid</p>
+                                                    <p class="subtitle is-6">@jordan1_mid</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="content">
+                                                Herencia de baloncesto en un corte medio. Soporte extra en el
+                                                tobillo
+                                                y el estilo inconfundible del Jumpman.
+                                                <br />
+                                                <a href="#">#JordanMid</a>
+                                                <a href="#">#DropLimitado</a>
+                                                <a href="#">#Streetwear</a>
+                                                <br />
+                                                <time datetime="2026-10-04">Disponible: 4 Oct 2026</time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column is-4 is-flex is-justify-content-center">
+                                    <div class="card card-ojba">
+                                        <div class="card-image">
+                                            <figure class="image is-4by3">
+                                                <img src="nike airforce mid.jpg" alt="Nike Air Force 1 Mid" />
+                                            </figure>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    <figure class="image is-48x48">
+                                                        <img src="nike airforce mid.jpg" alt="Nike Air Force 1 Mid" />
+                                                    </figure>
+                                                </div>
+                                                <div class="media-content">
+                                                    <p class="title is-4">Nike Air Force 1 Mid</p>
+                                                    <p class="subtitle is-6">@nikeairforce1_mid</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="content">
+                                                El clásico AF1 con caña media y correa en el tobillo. Más soporte,
+                                                la misma suela con cámara de aire y mucha presencia.
+                                                <br />
+                                                <a href="#">#AirForce1Mid</a>
+                                                <a href="#">#DropLimitado</a>
+                                                <a href="#">#Streetwear</a>
+                                                <br />
+                                                <time datetime="2026-10-04">Disponible: 4 Oct 2026</time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column is-4 is-flex is-justify-content-center">
+                                    <div class="card card-ojba">
+                                        <div class="card-image">
+                                            <figure class="image is-4by3">
+                                                <img src="nike sb blazer mid.jpg" alt="Nike SB Blazer Mid" />
+                                            </figure>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    <figure class="image is-48x48">
+                                                        <img src="nike sb blazer mid.jpg" alt="Nike SB Blazer Mid" />
+                                                    </figure>
+                                                </div>
+                                                <div class="media-content">
+                                                    <p class="title is-4">Nike SB Blazer Mid</p>
+                                                    <p class="subtitle is-6">@nike_sb_blazer_mid</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="content">
+                                                Hecha para el skate y adoptada por la calle. Suela vulcanizada,
+                                                lengüeta acolchada y un agarre que aguanta el ritmo diario.
+                                                <br />
+                                                <a href="#">#NikeSB</a>
+                                                <a href="#">#DropLimitado</a>
+                                                <a href="#">#Streetwear</a>
+                                                <br />
+                                                <time datetime="2026-10-04">Disponible: 4 Oct 2026</time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="container is-max-desktop mt-6">
+                            <div class="columns is-centered is-multiline">
+                                <div class="column is-4 is-flex is-justify-content-center">
+                                    <div class="card card-ojba">
+                                        <div class="card-image">
+                                            <figure class="image is-4by3">
+                                                <img src="Jordan retro High.jpg" alt=" Air 1 Jordan Retro High" />
+                                            </figure>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    <figure class="image is-48x48">
+                                                        <img src="Jordan retro High.jpg"
+                                                            alt=" Air 1 Jordan Retro High" />
+                                                    </figure>
+                                                </div>
+                                                <div class="media-content">
+                                                    <p class="title is-4">Air Jordan 1 Retro High</p>
+                                                    <p class="subtitle is-6">@jordan1_retro_high</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="content">
+                                                La leyenda del baloncesto en caña alta. Siluetas originales,
+                                                colorways de colección y el Jumpman que todos quieren.
+                                                <br />
+                                                <a href="#">#JordanRetro</a>
+                                                <a href="#">#DropLimitado</a>
+                                                <a href="#">#Streetwear</a>
+                                                <br />
+                                                <time datetime="2026-10-04">Disponible: 4 Oct 2026</time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column is-4 is-flex is-justify-content-center">
+                                    <div class="card card-ojba">
+                                        <div class="card-image">
+                                            <figure class="image is-4by3">
+                                                <img src="nike dunk hight.jpg" alt="Nike Dunk High" />
+                                            </figure>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    <figure class="image is-48x48">
+                                                        <img src="nike dunk hight.jpg" alt="Nike Dunk High" />
+                                                    </figure>
+                                                </div>
+                                                <div class="media-content">
+                                                    <p class="title is-4">Nike Dunk High</p>
+                                                    <p class="subtitle is-6">@nike_dunk_high</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="content">
+                                                Ícono de las canchas y el skate en caña alta. Soporte para el
+                                                tobillo, paneles contrastantes y colores que se notan.
+                                                <br />
+                                                <a href="#">#NikeDunkHigh</a>
+                                                <a href="#">#DropLimitado</a>
+                                                <a href="#">#Streetwear</a>
+                                                <br />
+                                                <time datetime="2026-10-04">Disponible: 4 Oct 2026</time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column is-4 is-flex is-justify-content-center">
+                                    <div class="card card-ojba">
+                                        <div class="card-image">
+                                            <figure class="image is-4by3">
+                                                <img src="airforce hight.jpg" alt="Nike Air Force 1 High" />
+                                            </figure>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    <figure class="image is-48x48">
+                                                        <img src="airforce hight.jpg" alt="Nike Air Force 1 High" />
+                                                    </figure>
+                                                </div>
+                                                <div class="media-content">
+                                                    <p class="title is-4">Nike Air Force 1 High</p>
+                                                    <p class="subtitle is-6">@nike_air_force_1_high</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="content">
+                                                Caña alta, correa en el tobillo y la silueta más imponente de la
+                                                línea AF1. Soporte total y presencia en cada paso.
+                                                <br />
+                                                <a href="#">#AirForce1High</a>
+                                                <a href="#">#DropLimitado</a>
+                                                <a href="#">#Streetwear</a>
+                                                <br />
+                                                <time datetime="2026-10-04">Disponible: 4 Oct 2026</time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+    <footer class="footer has-background-primary">
+        <div class="content has-text-centered has-text-weight-bold">
+            <p>
+                Derechos reservados © 2026 - Zapatillas Urbanas. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+
+        });
+    </script>
+
 </body>
+
 </html>
